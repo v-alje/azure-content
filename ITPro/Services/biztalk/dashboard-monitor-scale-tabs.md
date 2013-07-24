@@ -26,8 +26,8 @@ When you click your BizTalk Service name, the Quick Start tab is displayed. In t
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <td><b>Option</b></td>
-        <td><b>Description</b></td>
+        <td><strong>Option</strong></td>
+        <td><strong>Description</strong></td>
 </tr>
     <tr>
         <td>Get the tools</td>
@@ -64,8 +64,8 @@ In the task bar at the bottom, you can **Manage** the BizTalk Service, **Sync Ke
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <td><b>Option</b></td>
-        <td><b>Description</b></td>
+        <td><strong>Option</strong></td>
+        <td><strong>Description</strong></td>
 </tr>
 <tr>
 <td>Manage</td>
@@ -133,8 +133,8 @@ Lists your BizTalk Service properties, including the following:
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <td><b>Option</b></td>
-        <td><b>Description</b></td>
+        <td><strong>Option</strong></td>
+        <td><strong>Description</strong></td>
 </tr>
 <tr>
 <td>Update Tracking Database credentials</td>
@@ -157,7 +157,7 @@ When you provision the BizTalk Service, you enter a SSL certificate. Using this 
 <td>This URL routes to your BizTalk Service. This is the same as the <b>Domain URL</b> entered when your BizTalk Service is provisioned. </td>
 </tr>
 <tr>
-<td>Public virtual IP address (VIP)</td>
+<td>Public Virtual IP (VIP) Address</td>
 <td>This IP address is assigned to your BizTalk Service. It is used for all input endpoints and is the source address for outbound traffic. This IP address belongs to your BizTalk Service as long as it is provisioned. If you delete the BizTalk Service, the IP address is assigned to another service deployment.</td>
 </tr>
 <tr>
@@ -199,8 +199,8 @@ In the task bar at the bottom, you can **Manage** the BizTalk Service, **Sync Ke
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <td><b>Option</b></td>
-        <td><b>Description</b></td>
+        <td><strong>Option</strong></td>
+        <td><strong>Description</strong></td>
 </tr>
 <tr>
 <td>Manage</td>
@@ -277,8 +277,8 @@ The following performance counters/metrics are available:
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-<td><b>Metric</b></td>
-<td><b>Description</b></td>
+<td><strong>Metric</strong></td>
+<td><strong>Description</strong></td>
 </tr>
 <tr>
 <td>CPU Usage</td>
