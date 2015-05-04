@@ -1,123 +1,94 @@
-<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Web Sites" authors=""  solutions="" writer="timamm" manager="" editor=""  />
+<properties 
+	pageTitle="Manage web apps using the Azure Portal" 
+	description="Overview of the web app management tasks in Microsoft Azure using the Azure Portal." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="MikeWasson" 
+	writer="mwasson" 
+	manager="wpickett" 
+	editor=""/>
 
+<tags 
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/24/2015" 
+	ms.author="mwasson"/>
 
+# Manage web apps using the Azure Portal
 
+In the [Azure Portal](https://portal.azure.com), you manage your web apps through a series of *blades*, which are containers for the different components. (For an overview of the Azure Portal, please refer to the [Portal](http://go.microsoft.com/fwlink/?LinkId=529715) changes guide.) 
 
+To view the blade for your web app, click **Home** and then the app name, or click **Browse** to see all of your Azure resources.
 
+![](./media/web-sites-manage/manage01.png)
 
-#<a name="howtomanage"></a>How to Manage Web Sites
+The top part of the blade has controls for some common actions:
 
-You manage your web sites with a set of Management pages. Each Web Site management page is described below.
+- **Settings** to see a list of all management settings.
 
-## QuickStart ##
-The **QuickStart** management page includes the following sections:
+- **Browse** to open the web app in browser window. 
 
-- **Get the tools** - Provides links to [Install WebMatrix][mswebmatrix] and the [Windows Azure SDK][azuresdk].
-- **Publish your app** - Provides links to download the web site's publishing profile, reset deployment credentials for the web site, enable staged publishing on a non-staged site, and learn about staged publishing.
-- **Integrate source control** - Set up and manage deployment from source control tools or web sites like TFS, CodePlex, GitHub, Dropbox, Bitbucket, or Local Git.
+- Other buttons start or stop the app, swap deployment slots, delete the app, and so forth.
 
-## Dashboard ##
-The **Dashboard** management page includes the following:
+**Essentials** lists basic information about the app, including URL, location, [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan, and current status (running, stopped, etc).
 
-- A chart which summarizes web site usage as measurements of certain metrics.
- - **CPU Time** - a measure of the web site's CPU usage.
- - **Data In** - a measure of data received by the web site from clients.
- - **Data Out** - a measure of data sent by the web site to clients.
- - **HTTP Server Errors** - the number of HTTP "5xx Server Error" messages sent.
- - **Requests** - a count of all client requests to the web site.
- <br />**Note:**
-You can add additional performance metrics on the the **Monitor** management page by choosing **Add Metrics** on the bottom of that page. For more information, see [How to Monitor Web Sites][Monitor].
+Below **Essentials** are various parts that you can use to monitor, manage, and deploy your app. To customize the layout of blade, right click and select **Customize** or **Add Parts**. The rest of this topic describes the parts in the default layout.
 
-- **Web Endpoint Status** - A list of web endpoints that have been configured for monitoring. If no endpoints have been configured, click **Configure Web Endpoint Monitoring** and go to the **Monitoring** section of the **Configure** management page. Endpoints can be added only in Standard mode. For more information, see [How to Monitor Web Sites][Monitor].
+## Monitoring
 
-- **Autoscale Status** - In Standard mode, you can automatically scale your resources so you'll only spend as much as you need. To enable autoscaling, choose **Configure Autoscale**, which takes you to the **Scale** page. If your web site is in Free or Shared mode, you will need to change it to Standard mode (you can do this on the **Scale** page) before you can configure autoscaling. 
+Under **Monitoring** is a graph that shows metrics for your web app. To configure the graph, click **Edit**. You can select the time range and which metrics to display. Available metrics include number of requests, average response time, server errors, and CPU time.   
 
-- A **Usage Overview** section that shows statistics for the web site's CPU, file system, and memory usage.
-- A list of **linked resources** such as a SQL or MySQL database, or a Windows Azure storage account, that are associated with your web site. Click the name of the resource to manage the resource. If you have a MySQL database, clicking its name will take you to the ClearDB management page. There you can see your performance metrics, or go to the ClearDB dashboard, where you can upgrade your MySQL database if required. If no resources are listed , click **Manage Linked Resources** to go to the **Linked Resources** page, where you can add a link to a resource for your web site.
-- A **Quick Glance** section which includes the following summary information and links (depending on your settings, some of the options listed below may not appear):
- - **View Connection Strings** - View your web site's database connection strings.
- - **Download the Publish Profile** - Link to the publish profile, a file which contains credentials and URLs required to publish to the web site using any enabled publishing methods.
- - **Reset Your Deployment Credentials** - Displays a dialog box where you provide unique credentials for use when publishing with Git or FTP. If you wish to use Git or FTP deployment then you must reset deployment credentials because authentication to an FTP host or Git repository with Live ID credentials is not supported. Once you reset deployment credentials you can use these credentials for Git or FTP publishing to any web site in your subscription.
- - **Reset Your Publish Profile Credentials** - Resets the publish profile for your web site. Previously downloaded publish profiles will become invalid.
- - **Set up Deployment from Source Control** - Displays a dialog box where you can set up continuous publishing from Team Foundation Service, CodePlex, GitHub, Dropbox, Bitbucket, or Local Git.
- - **Enable Staged Publishing** - For sites in Standard mode, enable this feature to deploy your site to a staging slot. The staging slot lets you validate the site's content and configuration before swapping it into production. You can also use the staged version of the site to gradually add content updates, and then swap the site into production when the updates have been completed on the staging slot. (This option is not available on a staged site.)
- - **Edit in Visual Studio Online** - Click this link to edit your web site directly online. You can enable this feature on the **Configure** page.
- - **Disconnect from Dropbox** - If you have set up a connection to Dropbox for deployment purposes, this link allows you to disconnect it.
- - **Delete Git repository** - If you have set up a Git repository, this link allows you to delete it.
- - **Status** - Indicates whether the web site is running.
- - **Site URL** - Specifies the publicly accessible address of the web site on the internet.
- - **Compute Mode** - Specifies whether the web site is running in Free, Shared, or Standard mode. For more information about web site modes, see [How to Scale a Web Site][Scale].
- - **FTP Hostname** - Specifies the URL to use when publishing to the web site over FTP.
- - **FTPS Hostname** - Specifies the URL to use when publishing to the web site over FTPS.
- - **Deployment User / FTP User** - Indicates the account used when deploying the web site to Windows Azure over FTP or Git.
- - **FTP Diagnostic Logs** - Specifies the FTP location of the web site's diagnostic logs if diagnostic logging is enabled on the **Configure** management page.
- - **FTPS Diagnostic Logs** - Specifies the FTPS location of the web site's diagnostic logs if diagnostic logging is enabled on the **Configure** management page.
- - **Location** - Specifies the region of the datacenter that hosts the web site.
- - **Subscription Name** - Specifies the subscription name that the web site is associated with.
- - **Subscription ID** - Specifies the unique subscription ID (GUID) of the subscription that the web site is associated with.
+![](./media/web-sites-manage/manage02.png)
 
+To add an alert rule, click the graph, then click **Add alert**. An alert rule notifies you when a particular metric reaches some threshold. For example, you can be alerted when the number of server errors exceeds some value over a 5-minute period. 
 
-##Deployments##
- This tab appears only if you have set up deployment from source control. The **Deployments** management page provides a summary of all deployments made to the web site using your publishing method of choice. If Git publishing has been configured for the web site but no deployments have been made, the **Deployments** management page provides information describing how to use GIT to deploy your web application to the web site.
+**Monitoring** also includes parts to configure analytics, set up application monitoring, and create availability tests. For more information, see [Monitoring basics for Web Apps in Azure App Service](web-sites-monitor.md).
 
-##Monitor##
-The **Monitor** management page provides a chart that displays usage information for the web site. By default this chart displays the same metrics as the chart on the **Dashboard** page as described above in the Dashboard section. The chart can also be configured to display the metrics HTTP Successes, HTTP Redirects, HTTP 401 errors, HTTP 403 errors, HTTP 404 errors and HTTP 406 errors. For more information about these metrics, see [How to Monitor Web Sites][Monitor].
+## Usage
 
-##Configure##
-The **Configure** management page is used to set application specific settings including:
+![](./media/web-sites-manage/manage03.png)
 
-- **General** - Set the version of .NET framework or PHP required by your web application. For sites in Standard mode, there is an option to choose a 64-bit platform. Set **Managed Pipeline Mode**  to **Classic** only if you have legacy web sites that run exclusively on older versions of IIS (**Integrated** is the default.) To enable your web site to use real time request pattern applications such as chat, you can set **Web Sockets** to **On**. To enable editing of your web site directly online, set **Edit in Visual Studio Online** to **On**.
-- **Certificates** - Upload an SSL certificate for a custom domain. SSL certificates can be uploaded only in Standard mode. The certificates you upload are listed here and can be assigned to any web site in your subscription and region. Wildcard certificates (certificates with an asterisk) are supported.
-- **Domain Names** - View or add additional custom domain names for a web site. Custom domain names can only be used in Shared or Standard mode.
-- **SSL Bindings** - SSL bindings to custom domains can only be used in standard mode. Choose an SSL mode (**SNI**, **IP**, or **No SSL**) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded.  
-- **Deployments** - This section appears only if you have enabled deployment from source control. Use these settings to configure deployments.
-- **Application Diagnostics** - Set options for gathering diagnostic information for a web application that supports logging. You can choose to log to the file system or to a Windows Azure Storage account, and choose a logging level to specify the amount of information gathered.
-- **Site Diagnostics** - Set logging options for gathering diagnostic information for your web site, or enable Visual Studio 2012 or Visual Studio 2013 to debug your web site remotely for a maximum of 48 hours.
-- **Monitoring** - For web sites in Standard mode, test the availability of HTTP or HTTPS endpoints from geo-distributed locations.
-- **Developer Analytics** - Analytics monitor the performance of your web application. Choose an analytics add-on from the Windows Azure store, or choose a custom analytics provider such as New Relic.
-- **App Settings** - Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into the web site's .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node web sites, these settings will be available as environment variables at runtime.
-- **Connection Strings** - View connection strings to linked resources. For .NET sites, these connection strings will be injected into the web site's .NET configuration connectionStrings settings at runtime, overriding any existing entries where the key equals the linked database name. For PHP and Node web sites, these settings will be available as environment variables at runtime.
-- **Default Documents** - Add your web site's default document to this list if it is not already in the list. If your web site contains more than one of the files in the list then make sure your web site's default document appears at the top of the list by changing the order of the files in the list.
-- **Handler Mappings** - Add custom script processors that handle requests for specific file types (for example, *.php).
-- **Virtual Applications and Directories**  - Configure virtual applications and directories associated with your web site. You also have the option to mark a virtual directory as an application in site configuration.
+- **File System Storage** shows how much file storage your app is using.
+- **Quotas** shows how your app is using its resource usage quota. Click this part to see details.
+- **Scale** lets you scale the instance count and set up autoscaling. See [Scale a Web App in Azure App Service](how-to-scale-websites.md).  
+- **Estimated spend** shows a cost estimate for the app.
+- **Pricing tier** lets you change the pricing tier.
 
-For more information about how to configure a Web Site, see [How to Configure Web Sites][Configure].
+## Operations
 
+![](./media/web-sites-manage/manage04.png)
 
-##Scale##
-On the **Scale** management page, you can specify the web site mode (**Free**, **Shared** or **Standard**). **Shared** and **Standard** modes provide better throughput and performance. **Shared** and **Standard** modes allow you to increase the **Instance Count**, which is the number of virtual machines used by your web site.
+- **Events**. Click to view event logs.  
+- **Alert rules**. Click to view alert rules, and add new alerts.
+- **Streaming logs** (A). Click to view application logs. To enable logs, go to **Settings** and open the **Diagnostics logs** blade. 
+- **Console**. Click to open a command line that runs inside the portal. You can use this to run command commands like `mkdir` and `dir`.  
+- **Process explorer** (B). Click to view the processes running in the app, including working set and thread count.
+
+## Deployment
  
-In **Standard** mode, you can also increase the core count and memory capacity of each instance by changing the **Instance Size**.  For greater cost effectiveness, you can choose the **Autoscale** option to have Windows Azure allocate resources for your web site dynamically. The **Choose Sites** option lets you choose which web sites in a region you want to run in **Standard** mode. 
+![](./media/web-sites-manage/manage05.png)
 
-For more information about configuring scale options for a web site, see [How to Scale a Web Site][Scale].
+- Set up continuous deployment. See [Using Git to deploy Web Apps in Azure App Service](web-sites-publish-source-control.md)
+- Deployment slots. See [Deploy to Staging Environments for Web Apps in Azure App Service](web-sites-staged-publishing.md)
+- Set deployment credentials for Git or FTP. 
 
-##Linked Resources##
-The **Linked Resources** management page provides a list of Windows Azure resources that your web site is using, including SQL databases, MySQL databases, and Azure storage accounts. Click the name of the resource to manage it.
+## Networking
 
-##Management Page Icons##
-Icons are displayed at the bottom of each of the web site's Management pages. Several of these icons appear on multiple pages, and a few icons are displayed only on specific pages.  The following icons are displayed at the bottom of the **Dashboard** management page:
+- Connect the app to a virtual network
+- Add hybrid connections
 
-- **Browse** - Opens the default page for the web site.
-- **Stop** - Stops the web site.
-- **Restart** - Restarts the web site.
-- **Manage Domains** - Maps a domain to this web site. Not available for sites in **Free** scaling mode.
-- **Delete** - Deletes the web site.
-- **WebMatrix** - Opens supported web sites in WebMatrix, allowing you to make changes to the web site and publish those changes back to the web site on Windows Azure.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-The following icons are not displayed at the bottom of the **Dashboard** management page, but are on the bottom of other management pages to accomplish particular tasks:
+## Next steps
 
-- **Add Metrics** - At the bottom of the **Monitor** management page, allows you to add metrics to the chart displayed on the Monitor management page.
-- **Link** - At the bottom of the **Linked Resources** management page, allows you to create management links to other Windows Azure resources. For example, if your web site accesses a SQL database, you can create a management link to the database resource by clicking **Link**.
+- [Scale a Web App in Azure App Service](how-to-scale-websites.md)
+- [Run Background tasks with WebJobs](web-sites-create-web-jobs.md)
+- [Azure Web Apps backups](web-sites-backup.md) and [restore](web-sites-restore.md)
+- [Monitoring basics for Web Apps in Azure App Service](web-sites-monitor.md)
 
-
-<!-- LINKS -->
-[mswebmatrix]:http://go.microsoft.com/fwlink/?LinkID=226244
-
-[azuresdk]:http://go.microsoft.com/fwlink/?LinkId=246928
-
-[Configure]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites
-
-[Monitor]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/
-
-[Scale]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites
-
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
